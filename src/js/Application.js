@@ -1,25 +1,29 @@
-import EventEmitter from "eventemitter3";
-import Beat from "./Beat";
+import EventEmitter from 'eventemitter3';
+import Beat from './Beat';
 
 export default class Application extends EventEmitter {
-  static get events() {
-    return {
-      READY: "ready",
-    };
-  }
+	static get events() {
+		return {
+			READY: 'ready',
+		};
+	}
 
-  constructor() {
-    super();
+	constructor() {
+		super();
 
-    const lyrics = ["Ah", "ha", "ha", "ha", "stayin' alive", "stayin' alive"];
-    let count = 0;
+		const lyrics = ['Ah', 'ha', 'ha', 'ha', "stayin' alive", "stayin' alive"];
+		let count = 0;
 
-    const message = document.createElement("div");
-    message.classList.add("message");
-    message.innerText = "Ah";
+		const message = document.createElement('div');
+		message.classList.add('message');
+		message.innerText = 'Ah';
 
-    document.querySelector(".main").appendChild(message);
+		document.querySelector('.main').appendChild(message);
 
-    this.emit(Application.events.READY);
-  }
+		const _beat = new Beat();
+
+		this.emit(Application.events.READY);
+	}
+
+	_create() {}
 }
