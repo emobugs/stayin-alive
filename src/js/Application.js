@@ -16,7 +16,7 @@ export default class Application extends EventEmitter {
 
 		this._beat = new Beat();
 
-		this._beat.on(Beat.events.BIT, () => {
+		this._beat.addListener(Beat.events.BIT, () => {
 			this._create(lyrics[count]);
 			console.log(lyrics[count]);
 			count = Math.abs(++count % lyrics.length);
