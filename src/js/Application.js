@@ -14,9 +14,9 @@ export default class Application extends EventEmitter {
 		const lyrics = ['Ah', 'ha', 'ha', 'ha', "stayin' alive", "stayin' alive"];
 		let count = 0;
 
-		const _beat = new Beat();
+		this._beat = new Beat();
 
-		_beat.on(Beat.events.BIT, () => {
+		this._beat.on(Beat.events.BIT, () => {
 			this._create(lyrics[count]);
 			console.log(lyrics[count]);
 			count = Math.abs(++count % lyrics.length);
